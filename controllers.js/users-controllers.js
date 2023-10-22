@@ -1,4 +1,6 @@
 const uuid = require('uuid').v4;
+const fs = require('fs');
+const path = require('path');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -63,6 +65,7 @@ const signup = async (req, res, next) => {
     name,
     email,
     image: req.file.path,
+    // image: 'https://live.staticflickr.com/7631/26849088292_36fc52ee90_b.jpg',
     password: hashedPassword,
     places: [],
   });
